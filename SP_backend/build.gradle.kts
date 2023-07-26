@@ -1,5 +1,28 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+object Dependencies {
+    private object Versions{
+        const val Hibernate_VERSION = "6.2.0."
+    }
+
+    object Spring{
+
+    }
+
+    object Utils{
+        const val lombok = "org.projectlombok:lombok"
+    }
+
+    object Database {
+        const val jpa = "org.springframework.boot:spring-boot-starter-data-jpa"
+        const val jdbc = "org.springframework.boot:spring-boot-starter-jdbc"
+        const val postgresql = "org.postgresql:postgresql"
+        const val h2 = "com.h2database:h2"
+        const val hibernate = "org.hibernate.validator:hibernate-validator:${Versions.Hibernate_VERSION}Final"
+    }
+
+}
+
 plugins {
     id("org.springframework.boot") version "3.1.2"
     id("io.spring.dependency-management") version "1.1.2"
@@ -25,17 +48,20 @@ repositories {
     mavenCentral()
 }
 
+
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-jdbc")
+    implementation(Dependencies.Database.jpa)
+    implementation(Dependencies.Database.jdbc)
+    implementation(Dependencies.Database.hibernate)
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-web-services")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
-    runtimeOnly("com.h2database:h2")
-    annotationProcessor("org.projectlombok:lombok")
+    runtimeOnly(Dependencies.Database.h2)
+    runtimeOnly(Dependencies.Database.postgresql)
+    annotationProcessor(Dependencies.Utils.lombok)
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
