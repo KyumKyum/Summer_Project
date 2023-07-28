@@ -64,6 +64,7 @@ dependencies {
     runtimeOnly(Dependencies.Database.postgresql)
     annotationProcessor(Dependencies.Utils.lombok)
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation(kotlin("test"))
 }
 
 tasks.withType<KotlinCompile> {
@@ -76,6 +77,7 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
 
 allOpen {
     annotation("jakarta.persistence.Entity")

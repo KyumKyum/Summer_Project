@@ -7,7 +7,7 @@ import java.util.UUID
 @Table(name = "Users")
 class User(
     @Id @GeneratedValue(strategy = GenerationType.UUID)
-    val id: UUID,
+    val id: UUID?,
 
     @Column(nullable = false)
     val username: String,
@@ -20,4 +20,6 @@ class User(
 
     @Column(nullable = false)
     val keyVal: String,
+
+
 )
