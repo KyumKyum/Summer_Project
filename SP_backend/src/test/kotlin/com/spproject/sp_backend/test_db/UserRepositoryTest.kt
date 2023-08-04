@@ -81,8 +81,9 @@ class UserRepositoryTest (
             val findUser = usersRepository.findByUsername(newUser.username)
 
             //then
-            assertEquals(newUser.id, findUser?.id);
-            assertEquals(newUser.username, findUser?.username);
+            assertEquals(newUser.id, findUser?.id)
+            assertEquals(newUser.username, findUser?.username)
+            assertEquals(findUser?.username , "Jay Lim")
         }
     }
 }
