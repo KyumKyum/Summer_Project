@@ -19,6 +19,7 @@ object Dependencies {
         const val postgresql = "org.postgresql:postgresql"
         const val h2 = "com.h2database:h2"
         const val hibernate = "org.hibernate.validator:hibernate-validator:${Versions.Hibernate_VERSION}Final"
+        const val redis = "org.springframework.boot:spring-boot-starter-data-redis"
     }
 
 }
@@ -58,6 +59,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web-services")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation(Dependencies.Database.redis)
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly(Dependencies.Database.h2)
