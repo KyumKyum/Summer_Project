@@ -3,10 +3,15 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 object Dependencies {
     private object Versions{
         const val Hibernate_VERSION = "6.2.0."
+        const val EmbeddedRedis_VERSION = "0.7.2"
     }
 
     object Spring{
 
+    }
+
+    object Test{
+        const val embeddedRedis = "it.ozimov:embedded-redis:${Versions.EmbeddedRedis_VERSION}"
     }
 
     object Utils{
@@ -67,6 +72,7 @@ dependencies {
     annotationProcessor(Dependencies.Utils.lombok)
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation(kotlin("test"))
+    testImplementation(Dependencies.Test.embeddedRedis)
 }
 
 tasks.withType<KotlinCompile> {

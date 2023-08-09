@@ -14,7 +14,6 @@ class ValidationService(
     private val validationKeyRepository: ValidationKeyRepository,
     private val usersRepository: UsersRepository
 ) {
-
     //* Save validation key - this key will be checked in microservice.
 
     //* TODO: Finish Logic
@@ -25,7 +24,9 @@ class ValidationService(
         //* TODO: Add Error class. throw error by using elvis operator
         //* TODO: Finish logic
 
-        val validationKey:ValidationKey = ValidationKey("adasd",UUID.randomUUID())
+        val validationKey:ValidationKey = ValidationKey(user.keyVal, user.id!!)
+
+        validationKeyRepository.save(validationKey)
 
         return responseService.getSingleSuccessfulResponse(validationKey)
     }
