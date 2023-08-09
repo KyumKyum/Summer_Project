@@ -2,14 +2,22 @@ import express, {Request, Response} from 'express';
 import { genAvatarReq } from '../types/avatar';
 import { genAvatar } from '../service/avatar/genAvatar';
 import { BadRequestError } from './error';
+import { checkValidReq } from '../service/auth/checkValidReq';
+import { AuthResponse } from '../types/authResponse';
 
 export const handleGenerateRequest = async (req: Request, res: Response) => {
     const body: genAvatarReq | undefined = req.body;
     let avatarUrl: string = '';
     
-    //TODO: Add Auth system using redis 
     try{
         if(typeof body !== 'undefined'){
+            //* Auth
+            const authRes: AuthResponse = await checkValidReq(body.key);
+
+            if(!authRes.ok){
+                throw new BadRequestError(`Bad Request: ${authRes.message}`);
+            }
+
             avatarUrl = genAvatar(body.name, body.size);
         }else{
             throw new BadRequestError("Bad Request: Undefined Body");
