@@ -10,8 +10,8 @@ export const genAvatar = (name:string, size:number):string => {
         const color:string = genHexColor();
         colors.push(color);
     }
-    // avatar = avatar.slice(0, -1); //( Remove last comma)
-    // avatar = avatar.concat('?square');
+    
+    
     const avatar:string = buildUrl(BASE_URL, {
         path: `/beam/${size}/${name}`,
         queryParams: {
