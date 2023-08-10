@@ -3,10 +3,15 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 object Dependencies {
     private object Versions{
         const val Hibernate_VERSION = "6.2.0."
+        const val EmbeddedRedis_VERSION = "0.7.2"
     }
 
     object Spring{
 
+    }
+
+    object Test{
+        const val embeddedRedis = "it.ozimov:embedded-redis:${Versions.EmbeddedRedis_VERSION}"
     }
 
     object Utils{
@@ -19,6 +24,7 @@ object Dependencies {
         const val postgresql = "org.postgresql:postgresql"
         const val h2 = "com.h2database:h2"
         const val hibernate = "org.hibernate.validator:hibernate-validator:${Versions.Hibernate_VERSION}Final"
+        const val redis = "org.springframework.boot:spring-boot-starter-data-redis"
     }
 
 }
@@ -58,6 +64,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web-services")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation(Dependencies.Database.redis)
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly(Dependencies.Database.h2)
@@ -65,6 +72,7 @@ dependencies {
     annotationProcessor(Dependencies.Utils.lombok)
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation(kotlin("test"))
+    testImplementation(Dependencies.Test.embeddedRedis)
 }
 
 tasks.withType<KotlinCompile> {
