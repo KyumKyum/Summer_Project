@@ -1,8 +1,5 @@
-package com.spproject.sp_backend.service
+package com.spproject.sp_backend.service.response
 
-import com.spproject.sp_backend.service.response.GenerateResponse
-import com.spproject.sp_backend.service.response.ServiceResponse
-import com.spproject.sp_backend.service.response.SingleResponse
 import org.springframework.stereotype.Service
 
 @Service
