@@ -4,9 +4,13 @@ object Dependencies {
     private object Versions{
         const val Hibernate_VERSION = "6.2.0."
         const val EmbeddedRedis_VERSION = "0.7.2"
+        const val JWT_VERSION = "0.11.2"
     }
 
-    object Spring{
+    object Auth{
+        const val JWT_API = "io.jsonwebtoken:jjwt-api:${Versions.JWT_VERSION}"
+        const val JWT_IMPL = "io.jsonwebtoken:jjwt-impl:${Versions.JWT_VERSION}"
+        const val JWT_JACKSON = "io.jsonwebtoken:jjwt-jackson:${Versions.JWT_VERSION}"
 
     }
 
@@ -65,10 +69,14 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation(Dependencies.Database.redis)
+    implementation(Dependencies.Auth.JWT_API)
+    implementation("org.springframework.boot:spring-boot-starter-security")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly(Dependencies.Database.h2)
     runtimeOnly(Dependencies.Database.postgresql)
+    runtimeOnly(Dependencies.Auth.JWT_IMPL)
+    runtimeOnly(Dependencies.Auth.JWT_JACKSON)
     annotationProcessor(Dependencies.Utils.lombok)
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation(kotlin("test"))

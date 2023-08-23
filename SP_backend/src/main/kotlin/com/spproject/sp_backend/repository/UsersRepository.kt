@@ -10,4 +10,5 @@ interface UsersRepository: CrudRepository<User, UUID> {
     fun findByUsername(username: String): User?
     fun findByKeyVal(keyVal: String): User?
     fun findByIdent(ident: String): User?
+    fun deleteByIdent(ident: String)
 }
