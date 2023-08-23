@@ -20,4 +20,18 @@ data class UserDto (
             keyVal = this.keyVal ?: "Default"
         )
     }
+
+    fun toDto(user: User?): UserDto? {
+        if(user == null) return null
+
+        return UserDto(
+            user.id,
+            user.username,
+            user.ident,
+            user.password,
+            user.keyVal
+        )
+    }
+
+
 }

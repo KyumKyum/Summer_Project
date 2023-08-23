@@ -1,13 +1,12 @@
 package com.spproject.sp_backend.service
 
-import com.spproject.sp_backend.dto.UserDto
 import com.spproject.sp_backend.model.User
 import com.spproject.sp_backend.model.redis.ValidationKey
 import com.spproject.sp_backend.repository.UsersRepository
 import com.spproject.sp_backend.repository.redis.ValidationKeyRepository
+import com.spproject.sp_backend.service.response.ResponseService
 import com.spproject.sp_backend.service.response.SingleResponse
 import org.springframework.stereotype.Service
-import java.util.Base64
 import java.util.UUID
 
 @Service
