@@ -71,6 +71,7 @@ dependencies {
     implementation(Dependencies.Database.redis)
     implementation(Dependencies.Auth.JWT_API)
     implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("com.squareup.okhttp3:okhttp:4.9.1")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     runtimeOnly(Dependencies.Database.h2)

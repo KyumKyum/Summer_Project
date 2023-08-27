@@ -1,4 +1,4 @@
-package com.spproject.sp_backend.service.utils
+package com.spproject.sp_backend.service.signUp.utils
 
 import com.spproject.sp_backend.dto.UserDto
 import com.spproject.sp_backend.model.User
