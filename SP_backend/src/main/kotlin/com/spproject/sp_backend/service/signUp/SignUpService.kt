@@ -1,10 +1,10 @@
 package com.spproject.sp_backend.service.signUp
 
 import com.spproject.sp_backend.dto.UserDto
-import com.spproject.sp_backend.service.response.ResponseService
-import com.spproject.sp_backend.service.response.SingleResponse
-import com.spproject.sp_backend.service.utils.PasswordUtils
-import com.spproject.sp_backend.service.utils.SignUpUtils
+import com.spproject.sp_backend.global.response.ResponseService
+import com.spproject.sp_backend.global.response.SingleResponse
+import com.spproject.sp_backend.service.utils.security.PasswordUtils
+import com.spproject.sp_backend.service.signUp.utils.SignUpUtils
 import org.springframework.stereotype.Service
 import java.util.UUID
 

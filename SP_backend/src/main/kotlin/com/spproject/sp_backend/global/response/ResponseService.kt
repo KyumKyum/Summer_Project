@@ -1,10 +1,10 @@
-package com.spproject.sp_backend.service.response
+package com.spproject.sp_backend.global.response
 
 import org.springframework.stereotype.Service
 
 @Service
 class ResponseService<T> : GenerateResponse() {
-    fun getSingleSuccessfulResponse(data:T): SingleResponse<T>{
+    fun getSingleSuccessfulResponse(data:T): SingleResponse<T> {
         val singleSuccessfulResponse = SingleResponse<T>(data)
         setSuccessfulResponse(singleSuccessfulResponse)
 

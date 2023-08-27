@@ -8,6 +8,8 @@ import { AuthResponse } from '../types/authResponse';
 export const handleGenerateRequest = async (req: Request, res: Response) => {
     const body: genAvatarReq | undefined = req.body;
     let avatarUrl: string = '';
+
+    console.log(body)
     
     try{
         if(typeof body !== 'undefined'){

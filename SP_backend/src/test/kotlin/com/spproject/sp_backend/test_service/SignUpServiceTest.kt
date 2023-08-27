@@ -1,7 +1,7 @@
 package com.spproject.sp_backend.test_service
 
 import com.spproject.sp_backend.dto.UserDto
-import com.spproject.sp_backend.service.response.SingleResponse
+import com.spproject.sp_backend.global.response.SingleResponse
 import com.spproject.sp_backend.service.signUp.SignUpService
 import jakarta.transaction.Transactional
 import org.junit.jupiter.api.DisplayName
@@ -29,7 +29,7 @@ class SignUpServiceTest(
         )
 
         //when
-        val res:SingleResponse<UserDto> = signUpService.signUp(newUser)
+        val res: SingleResponse<UserDto> = signUpService.signUp(newUser)
 
         //then
         assertEquals(res.ok, true)
@@ -51,7 +51,7 @@ class SignUpServiceTest(
         )
 
         //when
-        val res:SingleResponse<UserDto> = signUpService.signUp(newUser)
+        val res: SingleResponse<UserDto> = signUpService.signUp(newUser)
 
         //then
         assertEquals(res.ok, false)
@@ -91,8 +91,8 @@ class SignUpServiceTest(
             keyVal = null,
         )
 
-        val dupIdRes:SingleResponse<UserDto> = signUpService.signUp(duplicatedID)
-        val dupNameRes:SingleResponse<UserDto> = signUpService.signUp(duplicatedUsername)
+        val dupIdRes: SingleResponse<UserDto> = signUpService.signUp(duplicatedID)
+        val dupNameRes: SingleResponse<UserDto> = signUpService.signUp(duplicatedUsername)
 
 
         //then

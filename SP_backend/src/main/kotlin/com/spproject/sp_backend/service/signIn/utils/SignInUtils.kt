@@ -1,8 +1,9 @@
-package com.spproject.sp_backend.service.utils
+package com.spproject.sp_backend.service.signIn.utils
 
 import com.spproject.sp_backend.dto.UserDto
 import com.spproject.sp_backend.model.User
 import com.spproject.sp_backend.repository.UsersRepository
+import com.spproject.sp_backend.service.utils.security.PasswordUtils
 import org.springframework.stereotype.Component
 
 @Component
