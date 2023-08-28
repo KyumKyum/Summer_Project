@@ -50,6 +50,7 @@ class RedisTest(
         val ret:ValidationKey? = validationKeyRepository.findByKey(testKey);
 
         //then
+        println(ret?.key)
         assertNotNull(ret)
         assertEquals(ret.key, testKey)
         assertEquals(ret.userId, testId)

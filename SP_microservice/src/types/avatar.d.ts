@@ -4,5 +4,5 @@ export type genAvatarReq = {
     userId: UUID | String,
     name: string
     size:number
-    key: string
+    keyVal: string
 }

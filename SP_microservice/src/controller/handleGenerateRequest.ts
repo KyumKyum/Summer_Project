@@ -14,7 +14,8 @@ export const handleGenerateRequest = async (req: Request, res: Response) => {
     try{
         if(typeof body !== 'undefined'){
             //* Auth
-            const authRes: AuthResponse = await checkValidReq(body.key);
+            const authRes: AuthResponse = await checkValidReq(body.keyVal);
+            console.log(authRes)
 
             if(!authRes.ok){
                 throw new BadRequestError(`Bad Request: ${authRes.message}`);
