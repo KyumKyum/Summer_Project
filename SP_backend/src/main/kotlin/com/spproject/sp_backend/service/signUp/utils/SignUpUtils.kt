@@ -1,4 +1,4 @@
-package com.spproject.sp_backend.service.utils
+package com.spproject.sp_backend.service.signUp.utils
 
 import com.spproject.sp_backend.dto.UserDto
 import com.spproject.sp_backend.model.User
@@ -31,12 +31,18 @@ class SignUpUtils(
         return user == null
     }
 
-    fun createUser(user: UserDto): Boolean {
-        try{
-            usersRepository.save(user.toDomain())
+    fun createUser(user: UserDto): UserDto? {
+        return try{
+            val saved:User = usersRepository.save(user.toDomain())
+            UserDto(
+                saved.id,
+                saved.username,
+                saved.ident,
+                saved.password,
+                saved.keyVal
+            )
         }catch (error:Error){
-            return false
+            null
         }
-        return true
     }
 }

@@ -4,8 +4,8 @@ import com.spproject.sp_backend.model.User
 import com.spproject.sp_backend.model.redis.ValidationKey
 import com.spproject.sp_backend.repository.UsersRepository
 import com.spproject.sp_backend.repository.redis.ValidationKeyRepository
-import com.spproject.sp_backend.service.response.ResponseService
-import com.spproject.sp_backend.service.response.SingleResponse
+import com.spproject.sp_backend.global.response.ResponseService
+import com.spproject.sp_backend.global.response.SingleResponse
 import org.springframework.stereotype.Service
 import java.util.UUID
 
@@ -15,7 +15,7 @@ class ValidationService(
     private val usersRepository: UsersRepository
 ) {
     //* Save validation key - this key will be checked in microservice.
-    fun saveValidationKey(userId:UUID):SingleResponse<ValidationKey>{
+    fun saveValidationKey(userId:UUID): SingleResponse<ValidationKey> {
         //* Check if user exists.
         val user:User = usersRepository.findById(userId).get()
         val responseService: ResponseService<ValidationKey> = ResponseService()

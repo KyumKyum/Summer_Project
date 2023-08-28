@@ -2,8 +2,8 @@ package com.spproject.sp_backend.test_utils
 
 import com.spproject.sp_backend.dto.UserDto
 import com.spproject.sp_backend.repository.UsersRepository
-import com.spproject.sp_backend.service.utils.PasswordUtils
-import com.spproject.sp_backend.service.utils.SignInUtils
+import com.spproject.sp_backend.service.utils.security.PasswordUtils
+import com.spproject.sp_backend.service.signIn.utils.SignInUtils
 import jakarta.transaction.Transactional
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test

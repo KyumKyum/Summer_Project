@@ -2,8 +2,8 @@ package com.spproject.sp_backend.test_service
 
 import com.spproject.sp_backend.dto.UserDto
 import com.spproject.sp_backend.repository.UsersRepository
-import com.spproject.sp_backend.service.response.ResponseService
-import com.spproject.sp_backend.service.response.SingleResponse
+import com.spproject.sp_backend.global.response.ResponseService
+import com.spproject.sp_backend.global.response.SingleResponse
 import com.spproject.sp_backend.service.signIn.SignInService
 import jakarta.transaction.Transactional
 import org.junit.jupiter.api.AfterAll

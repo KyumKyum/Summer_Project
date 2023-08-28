@@ -1,19 +1,19 @@
 package com.spproject.sp_backend.test_utils
 
 import com.spproject.sp_backend.dto.UserDto
-import com.spproject.sp_backend.service.utils.SignUpUtils
+import com.spproject.sp_backend.service.signUp.utils.SignUpUtils
 import jakarta.transaction.Transactional
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import kotlin.test.assertEquals
 import kotlin.test.assertFalse
+import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 
 @SpringBootTest
 class SignUpUtilsTest (
-    @Autowired private val signUpUtils:SignUpUtils
+    @Autowired private val signUpUtils: SignUpUtils
 ) {
     @Test
     @DisplayName("Test checkValidUserInfo")
@@ -47,7 +47,7 @@ class SignUpUtilsTest (
         );
 
         //then
-        assertTrue { signUpUtils.createUser(newUser) }
+        assertNotNull(signUpUtils.createUser(newUser))
     }
 
     @Test

@@ -1,4 +1,4 @@
-package com.spproject.sp_backend.service.response
+package com.spproject.sp_backend.global.response
 
 open class GenerateResponse {
     protected fun setSuccessfulResponse(response: ServiceResponse) {

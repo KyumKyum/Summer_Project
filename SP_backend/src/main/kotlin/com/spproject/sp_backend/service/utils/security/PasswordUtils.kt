@@ -1,4 +1,4 @@
-package com.spproject.sp_backend.service.utils
+package com.spproject.sp_backend.service.utils.security
 
 import org.springframework.stereotype.Component
 import java.security.MessageDigest
