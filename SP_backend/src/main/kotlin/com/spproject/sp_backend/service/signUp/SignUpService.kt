@@ -39,18 +39,19 @@ class SignUpService(
             val encryptedPW = passwordUtils.getEncryptedPassword(user.password!!)
             val key: String = UUID.randomUUID().toString()
 
-            val newUser: UserDto = UserDto(
-                null,
-                user.username!!,
-                user.ident!!,
-                encryptedPW,
-                key
+            val newUser: UserDto = signUpUtils.createUser(
+                UserDto(
+                    null,
+                    user.username!!,
+                    user.ident!!,
+                    encryptedPW,
+                    key)
             )
-
-            if(!signUpUtils.createUser(newUser)){
-                //TODO need to create error class
+                ?: //TODO need to create error class
                 throw Error("SaveError")
-            }
+
+
+            return responseService.getSingleSuccessfulResponse(newUser);
 
             //* User successfully created!
         }catch (error:Error){
@@ -62,7 +63,5 @@ class SignUpService(
                 else -> responseService.getSingleFailureResponse(user,"SIGNUP-FAILED", "Fatal Error!")
             }
         }
-
-        return responseService.getSingleSuccessfulResponse(user);
     }
 }

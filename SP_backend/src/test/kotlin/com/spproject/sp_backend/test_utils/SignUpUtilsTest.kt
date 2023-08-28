@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import kotlin.test.assertFalse
+import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 
 @SpringBootTest
@@ -46,7 +47,7 @@ class SignUpUtilsTest (
         );
 
         //then
-        assertTrue { signUpUtils.createUser(newUser) }
+        assertNotNull(signUpUtils.createUser(newUser))
     }
 
     @Test

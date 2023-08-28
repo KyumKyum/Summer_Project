@@ -1,4 +1,4 @@
-package main.kotlin.com.spproject.sp_backend.controller
+package com.spproject.sp_backend.controller
 
 import com.spproject.sp_backend.global.request.SingleRequest
 import com.spproject.sp_backend.global.response.SingleResponse

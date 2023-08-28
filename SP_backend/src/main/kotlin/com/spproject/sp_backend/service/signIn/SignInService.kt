@@ -23,7 +23,9 @@ class SignInService(
         ident: String,
         password: String
     ): SingleResponse<UserDto> {
+
         lateinit var user: UserDto
+
         try {
             //* Check Valid Input
             if(!signInUtils.checkValidSignIn(ident, password)){
@@ -39,6 +41,13 @@ class SignInService(
             }
 
         }catch (error: Error){
+            user = UserDto(
+                null,
+                null,
+                null,
+                null,
+                null
+            )
             return when(error.message){
                 "NotValidInput" -> responseService.getSingleFailureResponse(user, "SIGNIN-FAILED", "Not valid sign up input")
                 "NoSuchUser" -> responseService.getSingleFailureResponse(user, "SIGNIN-FAILED", "No Such User")
