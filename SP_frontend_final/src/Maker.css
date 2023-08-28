@@ -1,0 +1,67 @@
+.profile {
+    display: flex;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    height: 100vh;
+    background-image: url('http://bethany45.cafe24.com/wp-content/uploads/2021/03/%EA%B3%B5%EA%B3%BC%EB%8C%80%ED%95%99-%EA%B1%B4%EB%AC%BC-%EC%98%86-%EC%82%AC%EC%A7%84-scaled.jpg');
+    background-size: cover; 
+    background-position: center;
+}
+
+.profile-container {
+    margin-right: 40%;
+    margin-top: 2%;
+}
+
+.job {
+    font-size: 25px;
+    font-weight:800;
+    margin-left: 40px;
+    margin-top: 30px;
+    color: rgb(247,247,247);
+    text-shadow: 1px 1px black;
+}
+
+
+.profile_row {
+    z-index: 1;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+    margin-left: 40px;
+  }
+  
+
+.profile_img {
+    z-index: 1;
+    object-fit: contain;
+    width: 100px;
+    height: 100px;
+    padding-top: 5px;
+}
+
+.profile_col2 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: rgb(247,247,247);
+    text-shadow: 1px 1px black;
+}
+
+.name {
+    font-size: 15px;
+    font-weight:800;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: rgb(247,247,247);
+    text-shadow: 0.5px 0.5px black;
+}
+
+.history {
+    font-size: 13px;
+    color: rgb(247,247,247);
+    text-shadow: 0.5px 0.5px black;
+}

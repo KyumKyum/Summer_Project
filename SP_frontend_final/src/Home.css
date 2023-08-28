@@ -1,0 +1,83 @@
+.home {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 2000px;
+}
+
+.home_row1 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(247, 247, 247);
+  padding: 50px;
+  width: 50%;
+  height: 150px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: dimgrey;
+  z-index: 1;
+  font-size: 13px;
+  font-weight: 800;
+  border-radius: 15px;
+  position: relative;
+  text-shadow: 1px 1px black;
+}
+
+.background_image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("https://i0.wp.com/cms.sofrep.com/wp-content/uploads/2014/01/rpg-7-ana-soldier.jpg?fit=1400%2C700&ssl=1");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.generator_button button {
+  background-color: rgb(169, 62, 227);
+  padding: 7px;
+  color: white;
+  border: 1px solid;
+  margin-top: 25px;
+  border-color: rgb(169, 62, 227);
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  &:hover {
+    background-color: white;
+    color: black;
+  }
+}
+
+.home_img {
+  width: 50%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+}
+
+.home_row2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 30px;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.home_row2_col1 {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
