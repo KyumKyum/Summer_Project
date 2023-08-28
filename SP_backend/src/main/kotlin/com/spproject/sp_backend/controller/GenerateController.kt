@@ -1,4 +1,4 @@
-package main.kotlin.com.spproject.sp_backend.controller
+package com.spproject.sp_backend.controller
 
 import com.spproject.sp_backend.global.request.SingleRequest
 import com.spproject.sp_backend.global.response.SingleResponse
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController
 class GenerateController(
     @Autowired private val generateService: GenerateService,
 ){
-    @PostMapping("/")
+    @PostMapping()
     fun handleGeneration(@RequestBody generateRequest: GenerateRequest): SingleResponse<GeneratedAvatar?>{
         val req: SingleRequest<GenerateRequest> = SingleRequest<GenerateRequest>(generateRequest)
         return generateService.generateAvatarRequest(req)

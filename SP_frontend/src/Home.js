@@ -1,19 +1,43 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./Home.css";
-import { Link } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {Cookies} from "react-cookie";
 
-function Home() {
+export const Home = ({
+    checkLogin,
+    loggedIn
+}) => {
+  const cookies = new Cookies();
+  const navigation = useNavigate();
+
+  const proceed = () => {
+    if(!loggedIn){
+      alert("You need to be logged in first!")
+      navigation("/login", {replace: true});
+    }else{
+      navigation("/generator", {replace: true});
+    }
+  }
+
+  useEffect(() => {
+    if(cookies.get("Login")?.length > 0){
+      checkLogin(true);
+    }
+  },[cookies]);
+
   return (
     <div className="home">
       <div className="home-container">
         <div className="home_row1">
           <div className="background_image"></div>
           <h1>Random Profile Generator</h1>
-          <Link to="/generator">
             <div className="generator_button">
-              <button>지금 발사하기</button>
+              <button style={{display: "flex"}}
+              onClick={(e) => {
+                e.preventDefault();
+                proceed();
+              }}>{`지금 발사하기`}</button>
             </div>
-          </Link>
         </div>
 
         <div className="home_row2">

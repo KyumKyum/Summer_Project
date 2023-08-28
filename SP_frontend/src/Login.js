@@ -1,13 +1,28 @@
 import React, {useState} from 'react';
 import './Login.css';
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+import {sendSignInQuery} from "./request/sendSignInQuery";
+import {Cookies} from "react-cookie";
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const signIn = e => {
-        e.preventDefault();
+    const cookies = new Cookies();
+    const navigation = useNavigate();
+
+    const signIn = async() => {
+        if(email.length === 0 || password.length === 0){
+            alert("Need to fill all required fields!");
+        }else{
+            const data = await sendSignInQuery(email,password);
+            if(data !== null){
+                //* Save login data to cookie.
+                cookies.set("Login", data.id);
+                cookies.set("Username", data.name);
+                navigation("/", {replace: true});
+            }
+        }
     }
     return (
         <div className = "login">
@@ -27,7 +42,10 @@ function Login() {
                     <h5>비밀번호</h5>
                     <input value={password} onChange = {e => setPassword(e.target.value)} type = "password"/>
 
-                    <button onClick = {signIn} className='login_signInButton'>로그인 하기</button>
+                    <button onClick = {(e) => {
+                        e.preventDefault();
+                        signIn();
+                    }} className='login_signInButton'>로그인 하기</button>
 
                 </form>
             </div>

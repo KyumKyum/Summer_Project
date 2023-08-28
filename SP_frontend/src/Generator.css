@@ -43,15 +43,12 @@
   font-size: 13px;
   font-weight: 800;
   border-radius: 2px;
-  width: 20x;
-  height: 30px;
   border: 1px solid;
-  margin-top: 10px;
+  height: auto;
   border-color: black;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   &:hover {
     background-color: white;
     color: black;
