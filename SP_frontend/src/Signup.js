@@ -1,14 +1,25 @@
 import React, {useState} from 'react';
 import './Signup.css';
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+import {sendTestQuery} from "./request/sendTestQuery";
+import {sendSignUpQuery} from "./request/sendSignUpQuery";
 
 function Signup() {
+    const navigate = useNavigate();
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('');
 
-
-    const register = e => {
-        e.preventDefault();
+    const register = async () => {
+        if(email.length === 0|| password.length === 0 || username.length === 0){
+            alert("Need to fill all required fields!");
+        }else{
+            const res = await sendSignUpQuery(email,password,username);
+            if(res){
+                navigate('/', {replace:true});
+            }
+        }
     }
 
     return (
@@ -28,10 +39,15 @@ function Signup() {
                     <input value={email} onChange= {e => setEmail(e.target.value)} type = "text"/>
                     <h5>비밀번호</h5>
                     <input value={password} onChange = {e => setPassword(e.target.value)} type = "password"/>
+                    <h5>닉네임</h5>
+                    <input value={username} onChange = {e => setUsername(e.target.value)} type = "text"/>
 
                     <p>이용 약관 동의하십니까?</p>
 
-                    <button onClick = {register} className='login_registerButton'>회원가입</button>
+                    <button type="submit" className='login_registerButton' onClick={async (e) => {
+                        e.preventDefault()
+                        await register();
+                    }}>회원가입</button>
                 </form>
             </div>
             

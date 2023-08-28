@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController
 class GenerateController(
     @Autowired private val generateService: GenerateService,
 ){
-    @PostMapping("/")
+    @PostMapping()
     fun handleGeneration(@RequestBody generateRequest: GenerateRequest): SingleResponse<GeneratedAvatar?>{
         val req: SingleRequest<GenerateRequest> = SingleRequest<GenerateRequest>(generateRequest)
         return generateService.generateAvatarRequest(req)
